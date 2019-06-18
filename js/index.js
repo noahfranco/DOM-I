@@ -9,7 +9,7 @@ const siteContent = {
     "img-src": "img/logo.png"
   },
   "cta": {
-    "h1": "DOM Is Awesome",
+    "h1": "DOM<br>Is<br>Awesome",
     "button": "Get Started",
     "img-src": "img/header-img.png"
   },
@@ -39,4 +39,73 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"])  
+
+// ------------ Header -------------
+
+let anchorTag = document.querySelectorAll("a");  
+anchorTag = Array.from(anchorTag)
+anchorTag.forEach(function(element, index) {
+  element.innerText = siteContent["nav"][`nav-item-${index+1}`]
+});
+
+document.querySelector(".cta img").src = siteContent.cta["img-src"]; 
+
+document.querySelector(".cta h1").innerHTML = siteContent.cta.h1; 
+
+document.querySelector(".cta button").textContent = siteContent.cta.button; 
+
+// -------------- Main Content --------------
+
+const allH4 = document.querySelectorAll(".main-content h4"); 
+
+const {"main-content":{
+  "features-h4": featuresH4, 
+  "about-h4": aboutH4, 
+  "services-h4": servicesH4, 
+  "product-h4": productH4,
+  "vision-h4": visionH4
+} } = siteContent; 
+allH4[0].textContent = featuresH4, 
+allH4[1].textContent = aboutH4, 
+allH4[2].textContent = servicesH4, 
+allH4[3].textContent = productH4, 
+allH4[4].textContent = visionH4
+
+document.querySelector(".main-content img").src = siteContent["main-content"]["middle-img-src"]; 
+
+const mainContent = document.querySelectorAll(".main-content p"); 
+
+const {"main-content": {
+  "features-content": featuresContent, 
+  "about-content": aboutContent, 
+  "services-content": servicesContent, 
+  "product-content": productContent, 
+  "vision-content": visionContent 
+}} = siteContent; 
+mainContent[0].textContent = featuresContent, 
+mainContent[1].textContent = aboutContent, 
+mainContent[2].textContent = servicesContent, 
+mainContent[3].textContent = productContent, 
+mainContent[4].textContent = visionContent 
+
+// ----------- Footer Content --------------
+
+document.querySelector(".contact h4").textContent = siteContent.contact["contact-h4"]; 
+
+const footerPTags = document.querySelectorAll(".contact p"); 
+
+const {"contact":{
+  "address": addressP, 
+  "phone": phoneP, 
+  "email": emailP
+}} = siteContent 
+footerPTags[0].textContent = addressP, 
+footerPTags[1].textContent = phoneP, 
+footerPTags[2].textContent = emailP
+
+document.querySelector("footer p").textContent = siteContent.footer.copyright; 
+
+
+
+
